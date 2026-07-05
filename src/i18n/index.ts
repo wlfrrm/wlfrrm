@@ -1,10 +1,17 @@
-import ruRaw from "./ru.json";
-import enRaw from "./en.json";
+import rur from "./ru.json";
+import enr from "./en.json";
 
-const ru: any = ruRaw;
-const en: any = enRaw;
+const [ ru, en ]: any = [rur, enr] as const;
 
-export const t = (lang: "en" | "ru", key: string) => {
-    const dict = lang === "ru" ? ru : en;
-    return dict[key] ?? key;
+let lang = "en";
+
+export const setLang = (l: string) => {
+    lang = l;
 };
+
+export default (key: string) => {
+    if (lang === "ru") {
+        return ru[key] || key;
+    }
+    return en[key] || key;
+}
