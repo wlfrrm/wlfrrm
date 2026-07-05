@@ -1,0 +1,19 @@
+---
+import Layout from '../layout.astro';
+import Hero from '../components/hero.tsx';
+import t from '../i18n';
+
+const { path } = Astro.params;
+export function getStaticPaths() {
+	return [
+		{ params: { path: 'en' } },
+		{ params: { path: 'ru' } }
+	];
+}
+---
+
+<Layout>
+	<div class="w-full bg-bgc h-screen">
+		<Hero lang={path} client:load />
+	</div>
+</Layout>

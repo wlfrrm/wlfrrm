@@ -1,1 +1,38 @@
 @import "tailwindcss";
+
+@layer base {
+    html {
+        font-size: max(10px, 1vw);
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    p, h1, h2, h3, h4, h5, h6 {
+        color: var(--color-text);
+        text-decoration: none;
+        font-family: 'Inter', sans-serif;
+    }
+}
+
+@theme {
+    --color-bgc: #03070A;
+    --color-txt: white;
+    --color-primary: #4F8CFF;
+    --color-sub: #FFFFFF90;
+}   
+
+.backdrop {
+  border-radius: infinite;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(1rem);
+  -webkit-backdrop-filter: blur(1rem);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.1s ease-in-out;
+}
+
+.backdrop:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
