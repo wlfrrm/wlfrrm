@@ -1,6 +1,7 @@
 ---
 import Layout from '../layout.astro';
 import Hero from '../components/hero.tsx';
+import Body from '../components/body.jsx';
 import t from '../i18n';
 
 const { path } = Astro.params;
@@ -13,7 +14,8 @@ export function getStaticPaths() {
 ---
 
 <Layout>
-	<div class="w-full bg-bgc h-screen">
+	<div class="w-full bg-bgc h-max">
 		<Hero lang={path} client:load />
+		<Body lang={path} client:load />	
 	</div>
 </Layout>
